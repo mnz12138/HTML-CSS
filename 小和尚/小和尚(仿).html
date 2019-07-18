@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(white, bisque);
+        }
+        .content {
+            width: 12em;
+            height: 18em;
+            position: relative;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        .head {
+            position: absolute;
+            color: peachpuff;
+            width: 11em;
+            height: 11em;
+            background:
+                radial-gradient(
+                    circle at 50% 40%,
+                    red 0.6em,
+                    currentColor 0.6em
+                ),
+                currentColor;
+            border-radius: 50%;
+            filter: brightness(0.9);
+            box-shadow: 
+                4.8em 2em 0 -4em,
+                -4.8em 2em 0 -4em,
+                0 7.8em 0 -4em;
+        }
+        .eyes::before,.eyes::after {
+            position: absolute;
+            content: '';
+            width: 1em;
+            height: 0.5em;
+            border: 0.4em solid black;
+            border-radius: 1em 1em 0 0;
+            border-bottom: none;
+            top: 5em;
+        }
+        .eyes::before {
+            left: 2.5em;
+        }
+        .eyes::after {
+            right: 2.5em;
+        }
+        .mouth {
+            position: absolute;
+            width: 1.5em;
+            height: 0.5em;
+            border: 0.5em solid tomato;
+            border-radius: 0 0 1.5em 1.5em;
+            border-top: none;
+            top: 7.5em;
+        }
+        .belly {
+            position: absolute;
+            width: 8em;
+            height: 8em;
+            background-color: coral;
+            border-radius: 4em;
+            bottom: 1.5em;
+            z-index: -1;
+        }
+        .legs {
+            position: absolute;
+            width: inherit;
+            height: 5em;
+            border-radius: 2.5em;
+            background-color: coral;
+            bottom: 0;
+            z-index: -1;
+        }
+        .shadow {
+            position: absolute;
+            width: inherit;
+            height: 5em;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 50%;
+            bottom: -4em;
+            transform: rotateX(80deg);
+        }
+        .content {
+            animation: animation 3s ease-in-out infinite;
+        }
+        @keyframes animation {
+            50% {
+                transform: translateY(-2em);
+            }
+        }
+        .shadow {
+            animation: shadow_animation 3s ease-in-out infinite;
+        }
+        @keyframes shadow_animation {
+            50% {
+                transform: rotateX(80deg) translateY(10em) scale(0.7);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <span class="head"></span>
+        <span class="eyes"></span>
+        <span class="mouth"></span>
+        <span class="mouth"></span>
+        <span class="belly"></span>
+        <span class="legs"></span>
+        <span class="shadow"></span>
+    </div>
+</body>
+</html>
